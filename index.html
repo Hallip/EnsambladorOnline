@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title> </title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.slidertron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+
+		<!-- Header -->
+			<header id="header" class="alt skel-layers-fixed">
+				<h1><a href="https://github.com/Hallip">Github <span>Juan Montoya Velasquez</span></a></h1>
+
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h2>Ensamblador Online</h2>
+					<p>Laboratorio de Microprocesadores UNAL</p>
+					<ul class="actions">
+						<li><a href="#two" class="button big scrolly">Pruébalo</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style1">
+				<div class="container">
+					<header class="major">
+						<h2>Ensamblador Online 2019-2</h2>
+						<p>Ensamblador de arquitectura Von Newman (Prinston). ISA orientado a acumulador de 26 instrucciones diseñado para funcionar con una memoria de 255 bits (pocisiones desde 00 a FF)  <br><br/></p>
+						<div >
+							<table>
+							      <tr>
+							        <th><font color="white" size="4">Machine language</font></th>
+							        <th><font color="white" size="4">Mnemonic</font></th>
+							        <th><font color="white" size="4">Long name</font></th>
+							        <th><font color="white" size="4">Action</font></th>
+							      </tr>
+							      <tr>
+							        <td>0000 0000 xxxx xxxx</td>
+							        <td>LODD</td>
+							        <td>Load direct</td>
+							        <td>AC 🡨 M[x]</td>
+							      </tr>
+							      <tr>
+							        <td>0001 0000 xxxx xxxx</td>
+							        <td>STOD</td>
+							        <td>Store direct</td>
+							        <td>M[x] 🡨 AC</td>
+							      </tr>
+							      <tr>
+							        <td>0010 0000 xxxx xxxx</td>
+							        <td>ADDD</td>
+							        <td>Add direct</td>
+							        <td>AC 🡨 AC + M[x]</td>
+							      </tr>
+							      <tr>
+							        <td>0011 0000 xxxx xxxx</td>
+							        <td>SUBD</td>
+							        <td>Substract direct</td>
+							        <td>AC 🡨 AC - M[x]</td>
+							      </tr>
+							      <tr>
+							        <td>0100 0000 xxxx xxxx</td>
+							        <td>JPOS</td>
+							        <td>Jump positive</td>
+							        <td>If AC >= 0 then PC 🡨 x</td>
+							      </tr>
+							      <tr>
+							        <td>0101 0000 xxxx xxxx</td>
+							        <td>JZER</td>
+							        <td>Jump zero</td>
+							        <td>If AC = 0 then PC 🡨 x</td>
+							      </tr>
+							      <tr>
+							        <td>0110 0000 xxxx xxxx</td>
+							        <td>JUMP</td>
+							        <td>jump</td>
+							        <td>PC 🡨 x</td>
+							      </tr>
+							      <tr>
+							        <td>0111 0000 xxxx xxxx</td>
+							        <td>LOCO</td>
+							        <td>Load constant</td>
+							        <td>AC 🡨 x, x unsigned</td>
+							      </tr>
+							      <tr>
+							        <td>1000 0000 xxxx xxxx</td>
+							        <td>LODL</td>
+							        <td>Load local</td>
+							        <td>AC 🡨 M[SP + x]</td>
+							      </tr>
+							      <tr>
+							        <td>1001 0000 xxxx xxxx</td>
+							        <td>STOL</td>
+							        <td>Store local</td>
+							        <td>M[x + SP] 🡨 AC</td>
+							      </tr>
+							      <tr>
+							        <td>1010 0000 xxxx xxxx</td>
+							        <td>ADDL</td>
+							        <td>Add local</td>
+							        <td>AC 🡨 AC + M[SP + x]</td>
+							      </tr>
+							      <tr>
+							        <td>1011 0000 xxxx xxxx</td>
+							        <td>SUBL</td>
+							        <td>Subtract local</td>
+							        <td>AC 🡨 AC - M[SP + x]</td>
+							      </tr>
+							      <tr>
+							        <td>1100 0000 xxxx xxxx</td>
+							        <td>JNEG</td>
+							        <td>Jump negative</td>
+							        <td>If AC < 0 then PC 🡨 x</td>
+							      </tr>
+							      <tr>
+							        <td>1101 0000 xxxx xxxx</td>
+							        <td>JNZE</td>
+							        <td>Jump nonzero</td>
+							        <td>If AC != 0 then PC 🡨 x</td>
+							      </tr>
+							      <tr>
+							        <td>1110 0000 xxxx xxxx</td>
+							        <td>CALL</td>
+							        <td>Call procedure</td>
+							        <td>SP🡨SP-1;M[SP]🡨PC; PC🡨x</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0000 0000 0000</td>
+							        <td>PUSHI</td>
+							        <td>Push indirect</td>
+							        <td>SP🡨SP-1;M[SP]🡨M[AC]</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0001 0000 0000</td>
+							        <td>POPI</td>
+							        <td>Pop indirect</td>
+							        <td>M[AC]🡨M[SP]; SP🡨SP + 1</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0010 0000 0000</td>
+							        <td>PUSH</td>
+							        <td>push</td>
+							        <td>SP🡨SP-1; M[SP]🡨AC</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0011 0000 0000</td>
+							        <td>POP</td>
+							        <td>pop</td>
+							        <td>AC🡨M[SP]; SP🡨SP + 1</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0100 0000 0000</td>
+							        <td>RETN</td>
+							        <td>return</td>
+							        <td>PC🡨M[SP]; SP🡨SP + 1</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0101 0000 0000</td>
+							        <td>SWAP</td>
+							        <td>Swap AC and SP</td>
+							        <td>TMP🡨AC;AC🡨SP;SP🡨TMP</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0110 yyyy yyyy</td>
+							        <td>INSP</td>
+							        <td>Increment SP</td>
+							        <td>SP 🡨 SP + y; y unsigned</td>
+							      </tr>
+							      <tr>
+							        <td>1111 0111 yyyy yyyy</td>
+							        <td>DESP</td>
+							        <td>Decrement SP</td>
+							        <td>SP 🡨 SP - y; y unsigned</td>
+							      </tr>
+							      <tr>
+							        <td>1111 1000 0000 0000</td>
+							        <td>INPAC</td>
+							        <td>Input AC</td>
+							        <td>AC 🡨 Din</td>
+							      </tr>
+							      <tr>
+							        <td>1111 1001 0000 0000</td>
+							        <td>OUTAC</td>
+							        <td>Output AC</td>
+							        <td>Dout 🡨 AC</td>
+							      </tr>
+							      <tr>
+							        <td>1111 1010 0000 0000</td>
+							        <td>HALT</td>
+							        <td>Stop program</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td></td>
+										</tr>
+							</table>
+
+						</div>
+
+					</header>
+
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="container">
+					<div class="row uniform">
+						<div class="container">
+							<header class="major">
+								<h2>Crea tu codigo Ensamblador</h2>
+							</header>
+							<a class="button">Generate</a>
+							<a class="button">Check Syntax</a>
+							<a class="button">+</a>
+							<a class="button">-</a>
+							<br></br>
+							<table>
+								<tr>
+									<th><font color="white" size="4">HLL</font></th>
+									<th><font color="white" size="4">labels</font></th>
+									<th><font color="white" size="4">Mnemonic</font></th>
+									<th><font color="white" size="4">operands</font></th>
+									<th><font color="white" size="4">Memory Position</font></th>
+									<th><font color="white" size="4">Machine Code</font></th>
+								</tr>
+								<tr>
+									<td><input name="HLL1" type="text"></td>
+									<td><input name="labels1" type="text"></td>
+									<td><input name="Mnemonic1" type="text"></td>
+									<td><input name="operands1" type="text"></td>
+									<td><input name="Memory1" type="text"></td>
+									<td><input name="Machine1" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL2" type="text"></td>
+								  <td><input name="labels2" type="text"></td>
+								  <td><input name="Mnemonic2" type="text"></td>
+								  <td><input name="operands2" type="text"></td>
+								  <td><input name="Memory2" type="text"></td>
+								  <td><input name="Machine2" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL3" type="text"></td>
+								  <td><input name="labels3" type="text"></td>
+								  <td><input name="Mnemonic3" type="text"></td>
+								  <td><input name="operands3" type="text"></td>
+								  <td><input name="Memory3" type="text"></td>
+								  <td><input name="Machine3" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL4" type="text"></td>
+								  <td><input name="labels4" type="text"></td>
+								  <td><input name="Mnemonic4" type="text"></td>
+								  <td><input name="operands4" type="text"></td>
+								  <td><input name="Memory4" type="text"></td>
+								  <td><input name="Machine4" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL5" type="text"></td>
+								  <td><input name="labels5" type="text"></td>
+								  <td><input name="Mnemonic5" type="text"></td>
+								  <td><input name="operands5" type="text"></td>
+								  <td><input name="Memory5" type="text"></td>
+								  <td><input name="Machine5" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL6" type="text"></td>
+								  <td><input name="labels6" type="text"></td>
+								  <td><input name="Mnemonic6" type="text"></td>
+								  <td><input name="operands6" type="text"></td>
+								  <td><input name="Memory6" type="text"></td>
+								  <td><input name="Machine6" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL7" type="text"></td>
+								  <td><input name="labels7" type="text"></td>
+								  <td><input name="Mnemonic7" type="text"></td>
+								  <td><input name="operands7" type="text"></td>
+								  <td><input name="Memory7" type="text"></td>
+								  <td><input name="Machine7" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL8" type="text"></td>
+								  <td><input name="labels8" type="text"></td>
+								  <td><input name="Mnemonic8" type="text"></td>
+								  <td><input name="operands8" type="text"></td>
+								  <td><input name="Memory8" type="text"></td>
+								  <td><input name="Machine8" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL9" type="text"></td>
+								  <td><input name="labels9" type="text"></td>
+								  <td><input name="Mnemonic9" type="text"></td>
+								  <td><input name="operands9" type="text"></td>
+								  <td><input name="Memory9" type="text"></td>
+								  <td><input name="Machine9" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL10" type="text"></td>
+								  <td><input name="labels10" type="text"></td>
+								  <td><input name="Mnemonic10" type="text"></td>
+								  <td><input name="operands10" type="text"></td>
+								  <td><input name="Memory10" type="text"></td>
+								  <td><input name="Machine10" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL11" type="text"></td>
+								  <td><input name="labels11" type="text"></td>
+								  <td><input name="Mnemonic11" type="text"></td>
+								  <td><input name="operands11" type="text"></td>
+								  <td><input name="Memory11" type="text"></td>
+								  <td><input name="Machine11" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL12" type="text"></td>
+								  <td><input name="labels12" type="text"></td>
+								  <td><input name="Mnemonic12" type="text"></td>
+								  <td><input name="operands12" type="text"></td>
+								  <td><input name="Memory12" type="text"></td>
+								  <td><input name="Machine12" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL13" type="text"></td>
+								  <td><input name="labels13" type="text"></td>
+								  <td><input name="Mnemonic13" type="text"></td>
+								  <td><input name="operands13" type="text"></td>
+								  <td><input name="Memory13" type="text"></td>
+								  <td><input name="Machine13" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL14" type="text"></td>
+								  <td><input name="labels14" type="text"></td>
+								  <td><input name="Mnemonic14" type="text"></td>
+								  <td><input name="operands14" type="text"></td>
+								  <td><input name="Memory14" type="text"></td>
+								  <td><input name="Machine14" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL15" type="text"></td>
+								  <td><input name="labels15" type="text"></td>
+								  <td><input name="Mnemonic15" type="text"></td>
+								  <td><input name="operands15" type="text"></td>
+								  <td><input name="Memory15" type="text"></td>
+								  <td><input name="Machine15" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL16" type="text"></td>
+								  <td><input name="labels16" type="text"></td>
+								  <td><input name="Mnemonic16" type="text"></td>
+								  <td><input name="operands16" type="text"></td>
+								  <td><input name="Memory16" type="text"></td>
+								  <td><input name="Machine16" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL17" type="text"></td>
+								  <td><input name="labels17" type="text"></td>
+								  <td><input name="Mnemonic17" type="text"></td>
+								  <td><input name="operands17" type="text"></td>
+								  <td><input name="Memory17" type="text"></td>
+								  <td><input name="Machine17" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL18" type="text"></td>
+								  <td><input name="labels18" type="text"></td>
+								  <td><input name="Mnemonic18" type="text"></td>
+								  <td><input name="operands18" type="text"></td>
+								  <td><input name="Memory18" type="text"></td>
+								  <td><input name="Machine18" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL19" type="text"></td>
+								  <td><input name="labels19" type="text"></td>
+								  <td><input name="Mnemonic19" type="text"></td>
+								  <td><input name="operands19" type="text"></td>
+								  <td><input name="Memory19" type="text"></td>
+								  <td><input name="Machine19" type="text"></td>
+								</tr>
+								<tr>
+								  <td><input name="HLL20" type="text"></td>
+								  <td><input name="labels20" type="text"></td>
+								  <td><input name="Mnemonic20" type="text"></td>
+								  <td><input name="operands20" type="text"></td>
+								  <td><input name="Memory20" type="text"></td>
+								  <td><input name="Machine20" type="text"></td>
+								</tr>
+							</table>
+							</div>
+						</div>
+				</div>
+			</section>
+
+
+		<!-- CTA -->
+			<section id="cta" class="wrapper style3">
+				<ul class="actions">
+					<li><a href="#" class="button big">Get Started</a></li>
+				</ul>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<span class="copyright">
+					Agradecimientos al profesor Francisco Meluk Orozco <br> y al laboratorio de micropocesadores
+				</span>
+			</footer>
+
+	</body>
+</html>
