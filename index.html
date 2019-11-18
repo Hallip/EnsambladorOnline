@@ -15,6 +15,7 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/functions.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -22,6 +23,8 @@
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+
+		</script>
 	</head>
 	<body class="landing">
 
@@ -232,12 +235,12 @@
 							<header class="major">
 								<h2>Crea tu codigo Ensamblador</h2>
 							</header>
-							<a class="button">Generate</a>
-							<a class="button">Check Syntax</a>
-							<a class="button">+</a>
+							<a class="button" >Generate</a>
+							<a class="button" >Check Syntax</a>
+							<a class="button" onclick="add()">+</a>
 							<a class="button">-</a>
 							<br></br>
-							<table>
+							<table id="assamblyTable">
 								<tr>
 									<th><font color="white" size="4">HLL</font></th>
 									<th><font color="white" size="4">labels</font></th>
@@ -246,172 +249,17 @@
 									<th><font color="white" size="4">Memory Position</font></th>
 									<th><font color="white" size="4">Machine Code</font></th>
 								</tr>
-								<tr>
-									<td><input name="HLL1" type="text"></td>
-									<td><input name="labels1" type="text"></td>
-									<td><input name="Mnemonic1" type="text"></td>
-									<td><input name="operands1" type="text"></td>
-									<td><input name="Memory1" type="text"></td>
-									<td><input name="Machine1" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL2" type="text"></td>
-								  <td><input name="labels2" type="text"></td>
-								  <td><input name="Mnemonic2" type="text"></td>
-								  <td><input name="operands2" type="text"></td>
-								  <td><input name="Memory2" type="text"></td>
-								  <td><input name="Machine2" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL3" type="text"></td>
-								  <td><input name="labels3" type="text"></td>
-								  <td><input name="Mnemonic3" type="text"></td>
-								  <td><input name="operands3" type="text"></td>
-								  <td><input name="Memory3" type="text"></td>
-								  <td><input name="Machine3" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL4" type="text"></td>
-								  <td><input name="labels4" type="text"></td>
-								  <td><input name="Mnemonic4" type="text"></td>
-								  <td><input name="operands4" type="text"></td>
-								  <td><input name="Memory4" type="text"></td>
-								  <td><input name="Machine4" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL5" type="text"></td>
-								  <td><input name="labels5" type="text"></td>
-								  <td><input name="Mnemonic5" type="text"></td>
-								  <td><input name="operands5" type="text"></td>
-								  <td><input name="Memory5" type="text"></td>
-								  <td><input name="Machine5" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL6" type="text"></td>
-								  <td><input name="labels6" type="text"></td>
-								  <td><input name="Mnemonic6" type="text"></td>
-								  <td><input name="operands6" type="text"></td>
-								  <td><input name="Memory6" type="text"></td>
-								  <td><input name="Machine6" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL7" type="text"></td>
-								  <td><input name="labels7" type="text"></td>
-								  <td><input name="Mnemonic7" type="text"></td>
-								  <td><input name="operands7" type="text"></td>
-								  <td><input name="Memory7" type="text"></td>
-								  <td><input name="Machine7" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL8" type="text"></td>
-								  <td><input name="labels8" type="text"></td>
-								  <td><input name="Mnemonic8" type="text"></td>
-								  <td><input name="operands8" type="text"></td>
-								  <td><input name="Memory8" type="text"></td>
-								  <td><input name="Machine8" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL9" type="text"></td>
-								  <td><input name="labels9" type="text"></td>
-								  <td><input name="Mnemonic9" type="text"></td>
-								  <td><input name="operands9" type="text"></td>
-								  <td><input name="Memory9" type="text"></td>
-								  <td><input name="Machine9" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL10" type="text"></td>
-								  <td><input name="labels10" type="text"></td>
-								  <td><input name="Mnemonic10" type="text"></td>
-								  <td><input name="operands10" type="text"></td>
-								  <td><input name="Memory10" type="text"></td>
-								  <td><input name="Machine10" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL11" type="text"></td>
-								  <td><input name="labels11" type="text"></td>
-								  <td><input name="Mnemonic11" type="text"></td>
-								  <td><input name="operands11" type="text"></td>
-								  <td><input name="Memory11" type="text"></td>
-								  <td><input name="Machine11" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL12" type="text"></td>
-								  <td><input name="labels12" type="text"></td>
-								  <td><input name="Mnemonic12" type="text"></td>
-								  <td><input name="operands12" type="text"></td>
-								  <td><input name="Memory12" type="text"></td>
-								  <td><input name="Machine12" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL13" type="text"></td>
-								  <td><input name="labels13" type="text"></td>
-								  <td><input name="Mnemonic13" type="text"></td>
-								  <td><input name="operands13" type="text"></td>
-								  <td><input name="Memory13" type="text"></td>
-								  <td><input name="Machine13" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL14" type="text"></td>
-								  <td><input name="labels14" type="text"></td>
-								  <td><input name="Mnemonic14" type="text"></td>
-								  <td><input name="operands14" type="text"></td>
-								  <td><input name="Memory14" type="text"></td>
-								  <td><input name="Machine14" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL15" type="text"></td>
-								  <td><input name="labels15" type="text"></td>
-								  <td><input name="Mnemonic15" type="text"></td>
-								  <td><input name="operands15" type="text"></td>
-								  <td><input name="Memory15" type="text"></td>
-								  <td><input name="Machine15" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL16" type="text"></td>
-								  <td><input name="labels16" type="text"></td>
-								  <td><input name="Mnemonic16" type="text"></td>
-								  <td><input name="operands16" type="text"></td>
-								  <td><input name="Memory16" type="text"></td>
-								  <td><input name="Machine16" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL17" type="text"></td>
-								  <td><input name="labels17" type="text"></td>
-								  <td><input name="Mnemonic17" type="text"></td>
-								  <td><input name="operands17" type="text"></td>
-								  <td><input name="Memory17" type="text"></td>
-								  <td><input name="Machine17" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL18" type="text"></td>
-								  <td><input name="labels18" type="text"></td>
-								  <td><input name="Mnemonic18" type="text"></td>
-								  <td><input name="operands18" type="text"></td>
-								  <td><input name="Memory18" type="text"></td>
-								  <td><input name="Machine18" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL19" type="text"></td>
-								  <td><input name="labels19" type="text"></td>
-								  <td><input name="Mnemonic19" type="text"></td>
-								  <td><input name="operands19" type="text"></td>
-								  <td><input name="Memory19" type="text"></td>
-								  <td><input name="Machine19" type="text"></td>
-								</tr>
-								<tr>
-								  <td><input name="HLL20" type="text"></td>
-								  <td><input name="labels20" type="text"></td>
-								  <td><input name="Mnemonic20" type="text"></td>
-								  <td><input name="operands20" type="text"></td>
-								  <td><input name="Memory20" type="text"></td>
-								  <td><input name="Machine20" type="text"></td>
-								</tr>
 							</table>
 							</div>
 						</div>
 				</div>
 			</section>
 
+			<script type="text/javascript">
+			for (var i = 0; i < 5; i++){
+				add();
+			}
+			</script>
 
 		<!-- CTA -->
 			<section id="cta" class="wrapper style3">
