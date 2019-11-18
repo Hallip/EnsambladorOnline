@@ -1,6 +1,6 @@
 var count = 0;
 
-function add(){
+function appnd(){
   var fil = document.createElement("tr");
 
   var hll = document.createElement("td");
@@ -51,4 +51,15 @@ function add(){
 
   document.getElementById("assamblyTable").appendChild(fil);
   count++;
+}
+
+function remove(){
+    if(count > 5){
+      var list = document.getElementById("assamblyTable");
+      var temp = count;
+      temp++;
+      console.log(temp);
+      list.removeChild(list.childNodes[temp]);
+      count--;
+    }
 }
