@@ -1,4 +1,4 @@
-var count = 0;
+  var count = 0;
 
 function appnd(){
   var fil = document.createElement("tr");
@@ -11,12 +11,12 @@ function appnd(){
   var machine = document.createElement("td");
 
 
-  var hlli = document.createElement("input");
-  var labelsi = document.createElement("input");
-  var mnemonici = document.createElement("input");
-  var operandsi = document.createElement("input");
-  var memi = document.createElement("input");
-  var machinei = document.createElement("input");
+  var hlli = document.createElement("textarea");
+  var labelsi = document.createElement("textarea");
+  var mnemonici = document.createElement("textarea");
+  var operandsi = document.createElement("textarea");
+  var memi = document.createElement("textarea");
+  var machinei = document.createElement("textarea");
 
 
   hlli.setAttribute("id", ("hll"+ String(count)));
@@ -32,6 +32,7 @@ function appnd(){
   operandsi.setAttribute("type", "text");
   memi.setAttribute("type", "text");
   machinei.setAttribute("type", "text");
+
 
 
   hll.appendChild(hlli);
@@ -61,5 +62,37 @@ function remove(){
       console.log(temp);
       list.removeChild(list.childNodes[temp]);
       count--;
+    }
+}
+
+function checkSyntax(){
+    var memonics = ["LODD","STOD","ADDD","SUBD","JPOS","JZER","JUMP","LOCO","LODL","STOL","ADDL","SUBL","JNEG","JNZE","CALL","PUSHI","POPI","PUSH","POP","RETN","SWAP","INSP","DESP","INPAC","OUTAC","HALT",""]
+    var list = [];
+    for (var i = 0; i < count; i++) {
+      id = "mne" + String(i);
+      try {
+        mne = String(document.getElementById(id).value);
+        console.log(mne);
+        if (memonics.includes(mne) || (mne.charAt(0) == '$')){
+          if(list.includes(mne) && (mne.charAt(0) == '$')){
+            alert("Duplicated variable at: "+ String(i))
+            document.getElementById(id).className = "error";
+          }
+          else {
+            list.push(document.getElementById(id).value);
+            document.getElementById(id).className = "noneError";
+          }
+        }
+        else {
+          alert("Syntax Error in line: "+ String(i))
+          document.getElementById(id).className = "error";
+        }
+
+      } catch (e) {
+        console.log("e");
+      }
+    }
+    for (var i = 0; i < list.length; i++) {
+      console.log(list[i]);
     }
 }
