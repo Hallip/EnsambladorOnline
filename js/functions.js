@@ -76,16 +76,16 @@ function checkSyntax(){
         if (memonics.includes(mne) || (mne.charAt(0) == '$')){
           if(list.includes(mne) && (mne.charAt(0) == '$')){
             alert("Duplicated variable at: "+ String(i))
-            document.getElementById(id).className = "error";
+            document.getElementById(id).style.color = '#e0555a';
           }
           else {
             list.push(document.getElementById(id).value);
-            document.getElementById(id).className = "noneError";
+            document.getElementById(id).style.color = '#646464';
           }
         }
         else {
           alert("Syntax Error in line: "+ String(i))
-          document.getElementById(id).className = "error";
+          document.getElementById(id).style.color = '#e0555a';
         }
 
       } catch (e) {
