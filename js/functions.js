@@ -119,6 +119,9 @@ function clearTable(){
 
 function generate(){
   var memonics = ["LODD","STOD","ADDD","SUBD","JPOS","JZER","JUMP","LOCO","LODL","STOL","ADDL","SUBL","JNEG","JNZE","CALL","PUSHI","POPI","PUSH","POP","RETN","SWAP","INSP","DESP","INPAC","OUTAC","HALT"]
+  var lines = 0;
+  var operations = [];
+
   for (var i = 0; i < count; i++) {
     var id = "mne" + String(i);
     var hex = "mem" + String(i);
@@ -126,12 +129,91 @@ function generate(){
       mne = String(document.getElementById(id).value);
       if (memonics.includes(mne) || (mne.charAt(0) == '$')) {
         document.getElementById(hex).value =  toPaddedHexString(i, 2);
+
+        var labelGen =  document.getElementById(('lab'+String(i))).value;
+        var mnemonicGen = document.getElementById(('mne'+String(i))).value;
+        var operandsGen = document.getElementById(('ope'+String(i))).value;
+        var memGen = document.getElementById(('mem'+String(i))).value;
+
+        var opJSON = {
+          "label" : labelGen,
+          "mnemonic" : mnemonicGen,
+          "operands" : operandsGen,
+          "memPosition" : memGen
+        }
+        operations.push(opJSON);
+        lines++;
       }
 
     } catch (e) {
         console.log(e);
     }
   }
+
+  var symbols = [];
+
+  for (var operand in operations) {
+    if (operations[operand].label != "" || operations[operand].mnemonic.charAt(0) == '$' ){
+        symbols.push(operations[operand]);
+        console.log(operations[operand]);
+    }
+  }
+
+  //clear table
+
+  try {
+      document.getElementById("simbolsTable").remove();
+      var table = document.createElement("table");
+      table.setAttribute("id", "simbolsTable");
+      document.getElementById("symbolsTable").appendChild(table);
+  } catch (e) {
+      console.log(e)
+  }
+
+  //Create Table
+  var head = document.createElement("tr");
+  var name = document.createElement("th");
+  var content = document.createElement("font");
+  var text = document.createTextNode("Nombre");
+  content.appendChild(text);
+  content.setAttribute("color", "white");
+  content.setAttribute("size", 5);
+  name.appendChild(content);
+  head.appendChild(name);
+  var text2 = document.createTextNode("Valor");
+  var content2 = document.createElement("font");
+  content2.appendChild(text2);
+  var name2 = document.createElement("th");
+  content2.setAttribute("color", "white");
+  content2.setAttribute("size", 5);
+  name2.appendChild(content2);
+  head.appendChild(name2);
+  document.getElementById("simbolsTable").appendChild(head);
+
+  // append Table content
+
+  for (var symbol in symbols) {
+    var row = document.createElement("tr");
+    var nameColum = document.createElement("td");
+    var posiColum = document.createElement("td");
+    var nameContent = document.createElement("h4");
+    var positionContent = document.createElement("h4");
+    var nameText = document.createTextNode(symbols[symbol].mnemonic);
+    var posiText = document.createTextNode(symbols[symbol].memPosition);
+
+    nameContent.appendChild(nameText);
+    positionContent.appendChild(posiText);
+
+    nameColum.appendChild(nameContent);
+    posiColum.appendChild(positionContent);
+
+    row.appendChild(nameColum);
+    row.appendChild(posiColum);
+
+    document.getElementById("simbolsTable").appendChild(row);
+
+  }
+
 }
 
 function toPaddedHexString(num, len) {
