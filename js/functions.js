@@ -261,3 +261,29 @@ function toPaddedHexString(num, len) {
 function isNormalInteger(str) {
     return /^\+?(0|[1-9]\d*)$/.test(str);
 }
+
+function downloadMem() {
+  let content = "; Sample memory initialization file for Single Port Block Memory, \n; v3.0 or later.\n;\n; This .COE file specifies initialization values for a block \n; memory of depth=16, and width=8. In this case, values are \n; specified in hexadecimal format.\nmemory_initialization_radix=16;\nmemory_initialization_vector="
+  for (var i = 0; i < count; i++) {
+      let contenido = document.getElementById("mac"+String(i)).value;
+      alert(contenido)
+      if(contenido != ""){
+        content = content + "\n"+ contenido
+      }
+  }
+
+  download("initRam.coe",content)
+}
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
